@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="jdk," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Semaphore sema = new Semaphore(0);如果直接 sema.acquire() 将会阻塞，但是当先调用 sema.release() 之后，再执行sema.acquire() 将会获取到信号量:123456789101112131415161718192021222324public  void test1()&amp;#123;	Semaphore sema = new Se">
+<meta name="description" content="未完待续">
+<meta name="keywords" content="jdk">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Seventeen">
+<meta property="og:title" content="你真的读懂了Java的HashMap了吗？">
 <meta property="og:url" content="http://yoursite.com/2018/05/08/Semaphore/index.html">
 <meta property="og:site_name" content="Seventeen">
-<meta property="og:description" content="Semaphore sema = new Semaphore(0);如果直接 sema.acquire() 将会阻塞，但是当先调用 sema.release() 之后，再执行sema.acquire() 将会获取到信号量:123456789101112131415161718192021222324public  void test1()&amp;#123;	Semaphore sema = new Se">
+<meta property="og:description" content="未完待续">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-08T12:27:05.374Z">
+<meta property="og:updated_time" content="2018-05-11T08:47:39.528Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Seventeen">
-<meta name="twitter:description" content="Semaphore sema = new Semaphore(0);如果直接 sema.acquire() 将会阻塞，但是当先调用 sema.release() 之后，再执行sema.acquire() 将会获取到信号量:123456789101112131415161718192021222324public  void test1()&amp;#123;	Semaphore sema = new Se">
+<meta name="twitter:title" content="你真的读懂了Java的HashMap了吗？">
+<meta name="twitter:description" content="未完待续">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | Seventeen</title>
+  <title>你真的读懂了Java的HashMap了吗？ | Seventeen</title>
   
 
 
@@ -200,6 +201,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
@@ -269,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">你真的读懂了Java的HashMap了吗？</h1>
         
 
         <div class="post-meta">
@@ -291,6 +302,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/代码/" itemprop="url" rel="index">
+                    <span itemprop="name">代码</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -319,7 +352,7 @@
       
 
       
-        <p>Semaphore sema = new Semaphore(0);<br>如果直接 sema.acquire() 将会阻塞，但是当先调用 sema.release() 之后，再执行sema.acquire() 将会获取到信号量:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public  void test1()&#123;</span><br><span class="line">	Semaphore sema = new Semaphore(0);</span><br><span class="line">	sema.release();</span><br><span class="line">	System.out.println(&quot;get&quot;);</span><br><span class="line">	new Thread()&#123;</span><br><span class="line">		public void run()&#123;</span><br><span class="line">			try&#123;</span><br><span class="line">				sema.acquire();</span><br><span class="line">				System.out.println(&quot;Thread&quot;);</span><br><span class="line">			&#125;catch(InterruptedException e)&#123;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;.start();</span><br><span class="line">&#125;</span><br><span class="line">public void test2()&#123;</span><br><span class="line">	Semaphore sema = new Semaphore(0);</span><br><span class="line">	try&#123;</span><br><span class="line">		sema.acquire();</span><br><span class="line">		System.out.println(&quot;get&quot;);</span><br><span class="line">	&#125;catch(InterruptedException e)&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>未完待续<br><a id="more"></a><br>Semaphore sema = new Semaphore(0);<br>如果直接 sema.acquire() 将会阻塞，但是当先调用 sema.release() 之后，再执行sema.acquire() 将会获取到信号量:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public  void test1()&#123;</span><br><span class="line">	Semaphore sema = new Semaphore(0);</span><br><span class="line">	sema.release();</span><br><span class="line">	System.out.println(&quot;get&quot;);</span><br><span class="line">	new Thread()&#123;</span><br><span class="line">		public void run()&#123;</span><br><span class="line">			try&#123;</span><br><span class="line">				sema.acquire();</span><br><span class="line">				System.out.println(&quot;Thread&quot;);</span><br><span class="line">			&#125;catch(InterruptedException e)&#123;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;.start();</span><br><span class="line">&#125;</span><br><span class="line">public void test2()&#123;</span><br><span class="line">	Semaphore sema = new Semaphore(0);</span><br><span class="line">	try&#123;</span><br><span class="line">		sema.acquire();</span><br><span class="line">		System.out.println(&quot;get&quot;);</span><br><span class="line">	&#125;catch(InterruptedException e)&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>在test2 中无法打印，这是为何，我们从semaphore 的源码中来一探究竟</p>
 
       
@@ -335,6 +368,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jdk/" rel="tag"># jdk</a>
+          
+        </div>
       
 
       
